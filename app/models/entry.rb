@@ -8,6 +8,9 @@ class Entry < ActiveRecord::Base
   validates :body, presence: true
   validate  :picture_size
 
+  def feed
+    Entry.all
+  end
   private
 
     # Validates the size of an uploaded picture.

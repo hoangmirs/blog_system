@@ -12,6 +12,8 @@
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
-  <%= render entry.comments %>
+  <ol class="comments">
+    <%= render entry.comments %>
+  </ol>
   <%= render 'shared/comment_form', object: entry %>
 </li>

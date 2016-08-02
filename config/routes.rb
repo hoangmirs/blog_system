@@ -12,9 +12,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :account_activations, only: [:edit]
-  resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :entries,          only: [:create, :destroy]
+  resources :entries,          only: [:show, :edit, :update, :create, :destroy]
   resources :comments,     only: [:create, :edit, :update, :destroy]
   resources :relationships,       only: [:create, :destroy]
 

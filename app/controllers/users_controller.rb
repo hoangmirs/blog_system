@@ -15,11 +15,16 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @entries = @user.entries.paginate(page: params[:page])
-    @comment = Comment.new
+    if logged_in?
+      if current_user.following? @user or current_user? @user
+        @comment = Comment.new
+      end
+    end
   end
 
   # GET /users/new
   def new
+    redirect_to root_url if logged_in?
     @user = User.new
   end
 

@@ -231,6 +231,10 @@ input {
   margin-left: 0;
 }
 
+.background-form {
+  background: url(http://3.bp.blogspot.com/-7F-TaKSj4LY/UAOelWRuqlI/AAAAAAAACIQ/rcEtSrHaGEs/s1600/free_light_background_texture.jpg);
+}
+
 /* Users index */
 
 .users {
@@ -297,7 +301,9 @@ span.picture {
 
 .comments {
   list-style: none;
+  padding: 0;
   li {
+    padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
   .user {
@@ -329,6 +335,24 @@ span.picture {
   }
 }
 
-ol.comments {
-  padding-left: 50px;
+ol {
+  .comments {
+    padding-left: 50px;
+  }
+}
+
+.entry {
+  list-style: none;
+  img {
+    margin-top: 10px;
+    display: block;
+    margin: 0 auto;
+    input {
+      border: 0;
+    }
+  }
+  div.content {
+    text-align: center;
+    min-height: 300px;
+  }
 }

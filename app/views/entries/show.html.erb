@@ -1,0 +1,33 @@
+<% provide(:title, @entry.title) %>
+<div class="entry">
+  <h1><%= @entry.title %></h1>
+  <div class="content">
+    <%= image_tag @entry.picture.url if @entry.picture? %>
+    <p><%= @entry.body %></p>
+  </div>
+  <div class="text-right">
+    <% if current_user?(@entry.user) %>
+      <%= link_to "Delete", @entry, method: :delete,
+                                           data: { confirm: "You sure?" } %>
+       |
+      <%= link_to "Edit", edit_entry_path(@entry.id) %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+    By <span class="user"><%= link_to @entry.user.name, @entry.user %></span>
+    </div>
+    <div class="col-md-8 text-right">
+      <span class="timestamp">
+        Posted <%= time_ago_in_words(@entry.created_at) %> ago.
+    </span>
+    </div>
+  </div>
+</div>
+<div>
+  <h3>Comments (<%= @entry.comments.count %>)</h3>
+  <ol class="comments">
+    <%= render @entry.comments %>
+  </ol>
+  <%= render 'shared/comment_form', object: @entry %>
+</div>
